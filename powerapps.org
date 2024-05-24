@@ -1,0 +1,40 @@
+[[make.powerapps.com][Power Apps Home Page]]
+[[https://admin.powerplatform.microsoft.com/home][Power Platform Admin Center]]
+
+dataverse - cloud based database to store data. it's SQL based database behind the scenes
+environments - space to create, store to work with data, apps, flows...
+connection - standard links between data and power apps 
+custom connectors - power apps developer created links connection to data sources using REST APIs(3 conditions - REST API, JSON, one of 10+ authentication data)
+
+refer:
+difference between environment, tenant, organization in Azure
+solutions in power apps
+what is Common Data Services
+
+[[https://www.youtube.com/watch?v=rJsHc-4w60g&t=527s][Hands-On Power Apps Tutorial - Beginner to Pro [Full Course]​]]
+
+* canvas app 
+custom apps with drag and drop features and formulas
+starts with user experience
+best for role, or task based apps and users who care about UI and connecting to data sources other than dataverse
+works cross platform browser, PC, android, IOS, MacOS..
+lot of data sources to connect to (around 1200) one of those datasource is dataverse
+begins with empty canvas and no restriction for UI
+
+* model driven app
+data centric apps which creates UI based on dataverse tables
+starts with the underlying database or datastructure, data model, relationships, business processes
+mostly forms and lists
+there are many functionalities available in model-driven apps which we didn't ask for too. unlike in canvas apps, in which "What You See Is What You Get"
+
+* Power apps for teams
+
+building power apps within(inside) teams
+uses dataverse but identical to canvas app
+users will use teams to access apps and developers will use teams to build the app
+upto 1M rows and 2GB data
+
+* Power pages(or called portals)
+
+built in dataverse
+exposes the dataverse data we built in apps through website to external or internal parties(like customers, employees...)

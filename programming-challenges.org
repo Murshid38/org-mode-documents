@@ -1,0 +1,69 @@
+* solve this problem in local environment that it will reduce the amount of hits
+
+    trigger OnAfterGetCurrRecord()
+    begin
+        UpdateShortShipmentTotal();
+        UpdateInvoiceExcVatTotal();
+    end;
+
+    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    begin
+        UpdateShortShipmentTotal();
+        UpdateInvoiceExcVatTotal();
+    end;
+
+    trigger OnDeleteRecord(): Boolean
+    begin
+        UpdateShortShipmentTotal();
+        UpdateInvoiceExcVatTotal();
+    end;
+
+    local procedure UpdateShortShipmentTotal()
+    var
+        PurchaseLine: Record "Purchase Line";
+    begin
+        ShortShipmentValue := 0;
+
+        PurchaseLine.CopyFilters(Rec);
+        if PurchaseLine.FindSet() then
+            repeat
+                if PurchaseLine.Type = PurchaseLine.Type::"G/L Account" then begin
+                    ShortShipmentValue += PurchaseLine."Line Amount";
+                    CurrencyCode := PurchaseLine."Currency Code";
+                end;
+            until PurchaseLine.Next() = 0;
+    end;
+
+    local procedure UpdateInvoiceExcVatTotal()
+    var
+        PurchaseLine: Record "Purchase Line";
+    begin
+        TotalInvoiceValueExclVAT := 0;
+
+        PurchaseLine.CopyFilters(Rec);
+        if PurchaseLine.FindSet() then
+            repeat
+                if PurchaseLine.Type = PurchaseLine.Type::Item then begin
+                    TotalInvoiceValueExclVAT += PurchaseLine."Line Amount";
+                    CurrencyCode := PurchaseLine."Currency Code";
+                end;
+            until PurchaseLine.Next() = 0;
+    end;
+
+    var
+        DocumentTotals: Codeunit "Document Totals";
+        ShortShipmentValue: Decimal;
+        TotalInvoiceValueExclVAT: Decimal;
+        CurrencyCode: Code[10];
+
+
+* find out these properties and what they do
+
+Access = Public;
+SingleInstance = true;
+InherentEntitlements = X;
+InherentPermissions = X;
+
+* find out the difference between integration events and business events
+
+GetRecordOnce?? cash receipt journal

@@ -1,0 +1,3 @@
+* CaptionClass with currency code
+
+CaptionClass = STRSUBSTNO('Total Invoice Value Excl. VAT (%1)', CurrencyCode);

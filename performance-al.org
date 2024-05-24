@@ -1,0 +1,7 @@
+[[https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/performance/performance-users][Performance Tips for Business Users]]
+
+modern browser which allows page caching 
+browser roles instead of private/guest mode
+latency - AzureSpeed.com
+keep powered up
+
