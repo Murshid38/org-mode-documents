@@ -1,17 +1,29 @@
+[[https://www.youtube.com/watch?v=rJsHc-4w60g&t=527s][Hands-On Power Apps Tutorial - Beginner to Pro [Full Course]​]] 1h
+
 [[make.powerapps.com][Power Apps Home Page]]
 [[https://admin.powerplatform.microsoft.com/home][Power Platform Admin Center]]
 
 dataverse - cloud based database to store data. it's SQL based database behind the scenes
-environments - space to create, store to work with data, apps, flows...
+
+environments - space to create, store to work with data, apps, flows...(almost like a server). we create dev, testing, and production here too.
+
 connection - standard links between data and power apps 
+
 custom connectors - power apps developer created links connection to data sources using REST APIs(3 conditions - REST API, JSON, one of 10+ authentication data)
+
+solutions - containers for packaging relevant apps, dependency components. this makes us transfer our creation between environments and import into other apps too.
+
+unmanaged solutions - solutions which are still under development and not intended to be distributed.
+
+managed solutions - solutions which are complete and intended to be distributed.
+
+publisher - who developed the solution
 
 refer:
 difference between environment, tenant, organization in Azure
-solutions in power apps
 what is Common Data Services
-
-[[https://www.youtube.com/watch?v=rJsHc-4w60g&t=527s][Hands-On Power Apps Tutorial - Beginner to Pro [Full Course]​]]
+what is row level security, business unit level security, hierarchical security, column level security
+why gateway needed to connect to OnPrem data sources? and what is a gateway?
 
 * canvas app 
 custom apps with drag and drop features and formulas
@@ -38,3 +50,36 @@ upto 1M rows and 2GB data
 
 built in dataverse
 exposes the dataverse data we built in apps through website to external or internal parties(like customers, employees...)
+
+in power apps Developer type environments are free forever
+
+
+primary name column - primary key column as end users we are going to communicate
+id - guaranteed unique identifier across the table
+
+we can extend the standard tables power platform provides as well
+
+User - lists users who has license to power apps in this environment(typically same organization mail people)
+AAD User - lists users who has listed in AAD(authenticated users)
+Contacts - we can store users who has also not available in above two tables(such as external people too)
+
+views - UI to view the data
+forms - UI to enter the data
+
+in views 
+Active 'Table Name' - all the records which are not archived
+Inactive 'Table Name' - all the records which are archived
+
+when we save and publish views and forms whichever apps uses them will also reflect the changes
+
+the forms we build can be used by model driven apps and power pages
+the views we build can be used by every type of app
+
+* Power Fx
+
+formulas also like excel formulas by syntax
+formulas like functions which we can use again and again
+
+Parent.width -> makes the element width as the parent element or container width
+
+Filter('Time Cards', Project.Project); // here first Project is table. and second Project is column in that project
